@@ -18,3 +18,8 @@ qplot(pressure,aes(x=temperature,y=pressure)) + geom_line()#this is equivalent t
 qplot(temperature,presssure,data=pressure,geom=c("line","point"))#line and point together
 
 #Bar graph
+library(ggplot2)
+data <-data.frame(Cultivar=rep(c('c39','c52'),c(3,3)),Date=c('d16','d20','d21','d16','d20','d21'),Weight=c(3.18,2.80,2.74,2.26,3.11,1.47))
+qplot(data,aes(x=Date,y=Weight),fill=Cultivar) + geom_bar(position="dodge",stat="identity")
+#dodge--避开，为了让柱状分开不堆叠，fill是填充颜色的意思，为了改变柱状图边框颜色使用colour=" "
+#ggplot(data,aes(x=Date,y=factor(Weight),fill=Cultivar)) + geom_bar(position="dodge",stat="identity",colour='grey')
